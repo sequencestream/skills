@@ -1,6 +1,6 @@
 ---
 name: ss-develop-pipeline
-description: Hybrid development pipeline. The main agent runs analyst, designer, and developer inline, and dispatches improver, reviewer, tester, and documenter as sub-agents when the complexity assessment requires. Each phase is principle-guided — the agent decides file content and structure based on context.
+description: Runs a structured development pipeline that takes one requirement through analyst → designer → developer, then adds improver/reviewer/tester/documenter gates per a complexity assessment. Trigger when the user supplies a requirement description (or a session directory to resume) and wants it implemented through a structured pipeline with design review, integration tests, and doc sync rather than ad-hoc coding. Hybrid execution runs core phases inline while quality-gate phases dispatch as sub-agents. Each phase is principle-guided — the agent decides file content and structure from context.
 argument-hint: [requirement description or session directory]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 ---
@@ -154,7 +154,7 @@ Call the `Agent` tool with:
   5. A final instruction to return a concise summary (files written, key findings, pass/fail for tester).
 
 After the sub-agent returns:
-- Verify the artifacts exist on disk — don't trust the summary alone.
+- Verify the artifacts exist on disk — don't trust the summary alone. If an expected artifact is missing, re-dispatch that phase once; if it's still missing, stop and report the failure — don't continue to later phases with a missing artifact.
 - For `tester`, scan `<session-dir>/integrations-error-*.md` (without `-DONE`) to decide whether to loop back to `developer`.
 - For `improver` and `reviewer`, continue to the next phase.
 

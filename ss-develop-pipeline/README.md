@@ -2,7 +2,7 @@
 
 A skill that runs a structured development pipeline as a single command.
 
-The main agent runs `analyst`, `designer`, `developer`, and `documenter` inline, and dispatches `improver`, `reviewer`, and `tester` as sub-agents when a Complexity Assessment determines they are needed. Each phase writes its output to a session directory (default `changes/YYYY/MM/DD/...`) so progress is auditable and resumable.
+The main agent runs `analyst`, `designer`, and `developer` inline, and dispatches `improver`, `reviewer`, `tester`, and `documenter` as sub-agents when a Complexity Assessment determines they are needed. Each phase writes its output to a session directory (default `changes/YYYY/MM/DD/...`) so progress is auditable and resumable.
 
 See [SKILL.md](./SKILL.md) for the full phase-by-phase specification.
 
