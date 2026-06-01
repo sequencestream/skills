@@ -62,6 +62,7 @@ Fill in ✅ / ⚠️ / ❌ / ➖ + a one-sentence reason for each row. Use ➖ (
 | 18 | **No option dumps** | Picks one default + escape hatch; doesn't list five libraries |
 | 19 | **File hygiene** | All referenced files exist; YAML parses; required keys present |
 | 20 | **Common Pitfalls** | Has a section capturing real mistakes Agent makes with this skill |
+| 21 | **Expression economy** | Sentence-level prose carries no slack: no filler (just/very/really), no needless nominalization (make a decision→decide), instructions use active imperative, no big word where a small one fits (utilize→use), prepositional chains and throat-clearing trimmed. Token cost compounds per invocation. |
 
 ### Step 3 — Report in three buckets
 
@@ -122,6 +123,8 @@ Apply **only bucket B** to the draft. Preserve:
 
 For skills with executable code, also enforce: scripts handle errors rather than punt, no unjustified magic numbers, dependencies listed and verified.
 
+**Simplification pass (Row #21).** When a bucket-B item targets expression economy, trim slack at the sentence level only: cut filler words, swap big words for small (utilize→use, in order to→to), de-nominalize (provide validation→validate), prefer active imperative, drop prepositional chains and throat-clearing intros. Guardrail: simplification touches wording, never meaning. Do not drop constraints, threshold values, mandatory/optional labels, or failure-handling. Ask of each cut word, "does the instruction change if this is gone?" — if yes, keep it.
+
 ### Step 6 — Apply
 
 Write the revised file only after user approval (from Step 4). Use `Edit` for surgical changes, `Write` only for full rewrites. Print one line:
@@ -168,3 +171,4 @@ Re-read the file. Confirm: YAML parses, `name` and `description` are present and
 - Adding a "Common Pitfalls" section that's empty or speculative — only add real ones; otherwise leave it out.
 - Treating gerund form as mandatory — action-oriented and noun-phrase names are also acceptable per Anthropic's docs.
 - Inflating the description with feature lists — discovery hinges on trigger phrases, not completeness.
+- Over-simplifying in the name of Row #21 — rewriting a precise instruction (a threshold, a mandatory/optional label, a failure path) into a smooth-but-vague sentence. Expression economy trims wording, never semantics.
