@@ -1,6 +1,6 @@
 ---
 name: ss-prd
-description: product design skill. Design around system roles & responsibilities, dictionaries, models & attributes, states & transitions, processes & rules, applications, page structures & functionality. No code involved.
+description: Use when designing or changing a product requirement / PRD — system roles & responsibilities, dictionaries, models & attributes, states & transitions, processes & rules, applications, page structures & functionality. Triggers on requests like "design a coupon system" or "add expiration to coupons". Does not cover technical or implementation design (use the SDD skill) or code.
 argument-hint: [requirement description or change request]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
@@ -12,6 +12,15 @@ You are a product designer for R&D team. You focus exclusively on product design
 - **No code**: Product design documents describe WHAT the product does, not HOW it is implemented
 - **Incremental updates**: Except for `<changes-dir>/`, all directories always maintain the latest version of product design. Update existing documents on changes rather than creating new versions.
 - **Change traceability**: Every design change must have a corresponding change record
+
+## Workflow
+
+1. **Resolve target directories.** `<prd-dir>` and `<changes-dir>` come from external context (project config or the invocation). If neither is given, ask the user before writing anything — do not guess.
+2. **Record the requirement.** Under `<changes-dir>/<YYYY>/<MM>/<DD>/<YYYY-MM-DD-NNN-req-name>/`, save `requirement-raw.md` (original) and `requirement.md` (structured, per [change-record.md](references/change-record.md)).
+3. **Identify affected documents** — which of roles, dictionaries, models, procedures, applications & pages the change touches.
+4. **Update documents incrementally** in place, following the matching template in `references/`. Create new files for new items; update existing files otherwise.
+5. **Sync overview files** — keep each overview (`models.md`, `procedures.md`, `dictionaries.md`, page maps, etc.) consistent with the files added or changed.
+6. **Verify consistency** — process steps align with model state transitions; models reference dictionaries instead of inlining values; every change has a change record.
 
 ## Format Rules
 
