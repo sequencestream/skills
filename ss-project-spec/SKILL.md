@@ -70,7 +70,7 @@ Each trigger maps to a short procedure. Read the listed reference first, then cr
 | Init specs | `directory-structure.md` | `project.md`, `constitution.md`, `glossary.md`, minimal `domains/` | Start from the "When to Simplify" minimal set |
 | Add a domain | `directory-structure.md`, `capability-spec.md`, `capability-design.md` | `<group>/<domain>/` + `<domain>-overview.md`, `spec.md`, `design.md` | spec=WHAT, design=HOW |
 | Add a feature | `feature-spec.md` | `domains/<group>/<domain>/features/<feature>.md` | Reference `spec.md`, never restate it |
-| Create an ADR | `adr.md` | `architecture/adr/NNNN-title.md` | Zero-padded sequential number |
+| Create an ADR | `adr.md` | `architecture/adr/NNNN-title.md` | Present draft for human review; write only after explicit approval. Zero-padded sequential number |
 | Update NFR | `rules.md` | `non-functional/{performance,security,availability}.md` | Quantify every requirement |
 | Add glossary terms | `rules.md` | `glossary.md` | Add if a term spans >1 domain |
 | Archive content | `rules.md` | move to `archived/` (ADRs → `adr/deprecated/`) | Archive, never delete |

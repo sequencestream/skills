@@ -69,9 +69,11 @@ Spec documents are layered by change frequency. Each layer has a distinct purpos
 
 ## Lifecycle Rules
 
-1. **ADR statuses must be current.** "proposed" ADRs should resolve within a sprint. "superseded" ADRs must reference their replacement and move to `architecture/adr/deprecated/`.
+1. **ADRs require human review before writing.** Never write an ADR file directly. Present the draft to the user, get explicit approval, then write it. New ADRs default to `Status: proposed` — only promote to `accepted` after the user confirms. This mirrors the stakeholder sign-off required for `constitution.md`.
 
-2. **Archive, don't delete.** Deprecated domains go to `archived/`. ADRs are never deleted.
+2. **ADR statuses must be current.** "proposed" ADRs should resolve within a sprint. "superseded" ADRs must reference their replacement and move to `architecture/adr/deprecated/`.
+
+3. **Archive, don't delete.** Deprecated domains go to `archived/`. ADRs are never deleted.
 
 ## Domain Overview (`<domain>-overview.md`)
 
