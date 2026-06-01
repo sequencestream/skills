@@ -17,6 +17,7 @@ The domain spec captures the **stable business behavior** of a domain. It change
 ## Principles
 
 - **Business language only.** Describe what, not how. No SQL, no API methods, no implementation details.
+- **Stay at the altitude code can't reach.** Describe intent, invariants, and boundaries — not step-by-step logic. Before writing a rule, ask "could the reader get this from the code?" If yes, link to the code instead of restating it.
 - **One spec per bounded context.** If a domain's concerns are large enough to split, it should be two capabilities.
 - **Rules are referenceable.** Assign stable IDs to business rules so feature specs and test cases can reference them without duplication.
 - **Global terms live in glossary.** If a term is used across multiple capabilities, define it in `specs/glossary.md` and reference it here.

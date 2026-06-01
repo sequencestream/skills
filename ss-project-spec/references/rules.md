@@ -110,3 +110,5 @@ Each domain needs a lightweight overview file documenting identity and lifecycle
 | "I'll document the design after coding" | Design before code. Specs guide implementation, not the other way around. |
 | "Glossary is obvious, we all know what this means" | If a term appears in more than one capability, add it. Onboarding new team members depends on this. |
 | "ADRs slow us down" | A one-paragraph ADR is faster than explaining the same decision six times to six people. |
+| "Documenting the exact logic here makes the spec complete" | If the reader can recover it from the code, the code owns it. Restating logic only creates a second copy that drifts. Spec captures intent/constraints code can't express. |
+| "More implementation detail = more precise spec" | Precision lives in the code; the spec's job is the altitude code can't reach (why, boundaries, invariants). Sinking to detail trades a stable doc for a churning one. |

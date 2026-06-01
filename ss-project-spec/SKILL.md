@@ -28,6 +28,8 @@ You manage the project's specification documents. Keep them consistent, complete
 
 6. **Specify the negative space** — A spec must state non-goals ("what we won't do") and anti-scenarios ("what must never happen"), not only the happy path. Omitting boundaries lets implementations over-generate. Quantify every non-functional requirement — never "fast," "high," or "good."
 
+7. **Code owns HOW, spec owns WHY** — Code and specs share the repo, so the spec must not restate logic the code already expresses; duplicated detail only drifts. The spec captures what code *cannot*: intent and rationale (why this exists, why this way), boundaries and constraints (what must never happen), cross-cutting decisions spanning many code locations, and stable business invariants. **Litmus test for every line:** "Could a reader recover this by reading the code?" If yes — delete it, link to the code. If no — it belongs here. When unsure, rise in altitude, don't sink.
+
 > **Skip if** the user asks to write code, configure deployment, edit source files, or manage database migrations — this skill manages documentation only.
 
 ## Directory Overview
