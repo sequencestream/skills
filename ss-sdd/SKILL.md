@@ -25,6 +25,7 @@ description: Lightweight AI Agent Harness / checkpoint-driven coding skill. For 
 - `Reverse Sync`: after execution, write the results, deviations, and validation conclusions back into the spec.
 - `Resume Ready`: before long tasks or pauses, leave a minimal resume anchor in the spec to support restart and handoff.
 - `Ask via Tool`: every approval, confirmation, choice, or pause-question must be raised through an interactive tool (`AskUserQuestion`, or a permission prompt) with concrete options, never as free text buried in the reply that the user has to answer in prose.
+- `Spec Self-Check`: before requesting approval, check the spec across five dimensions — Completeness, Consistency, Testability, Unambiguity, Feasibility — and expose any gap rather than silently proceeding.
 
 ## Default Assumptions
 
@@ -59,6 +60,7 @@ description: Lightweight AI Agent Harness / checkpoint-driven coding skill. For 
 - For ambiguous requirements, architectural changes, unknown root causes, cross-module/cross-project work, or long-chain iteration.
 - Explicit analysis, option comparison, and risk discussion are allowed, but stay concise.
 - Write the deep-thinking output back to the spec first, then send it for review; only enter implementation after approval.
+- For architecture-level or cross-module specs, you may delegate an independent verifier sub-agent to adversarially check the five `Spec Self-Check` dimensions; standard and below stay inline with no sub-agent overhead.
 
 ## Minimal Workflow
 
@@ -67,6 +69,7 @@ description: Lightweight AI Agent Harness / checkpoint-driven coding skill. For 
 - In the spec, use 1–3 lines to state the `Done Contract`: what counts as done, what proves it, and what counts as not-yet-done.
 - Before implementation, give a short checkpoint: `current understanding`, `core goal`, `next 1–3 actions`, `risks`, `validation method`.
 - If tests, logs, or human feedback expose deviation, re-state — based on external evidence — "has the current core goal changed, and what is still missing" before deciding whether to continue or adjust.
+- Before requesting approval, run the `Spec Self-Check` across the five dimensions; if any dimension falls short, revise the spec first or flag the gap to the user.
 - Execute only after explicit user approval requested via `AskUserQuestion`; if scope or approach changes, update the spec first and re-request approval the same way.
 - After execution, write back `Change Log / Validation / Resume or Handoff`, and state "whether the current core goal has been proven done by evidence; if not, what is the next loop's core goal".
 

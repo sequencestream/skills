@@ -29,6 +29,8 @@ Claude Code will then follow the SDD loop:
 5. **Execute** — implements the change.
 6. **Reverse Sync** — writes change log, validation results, and resume anchor back into the spec.
 
+> Before requesting approval, the model runs a **Spec Self-Check** across completeness, consistency, testability, unambiguity, and feasibility — exposing any gap rather than proceeding silently.
+
 ### Pick a depth
 
 | Depth | When to use |
