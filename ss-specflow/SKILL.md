@@ -1,6 +1,6 @@
 ---
 name: ss-specflow
-description: A lightweight spec-driven development flow that takes one requirement through a four-step trunk — requirement → spec → plan → develop — run inline, where develop covers coding, testing, and project-doc sync as one complete delivery. On top of the trunk sits a single enhancement-judgement step that decides whether to enable optional review sub-agents (spec-review, plan-review, develop-review); each review feeds its opinions back to the matching trunk step, which decides on its own whether to improve before continuing. Trigger when the user supplies a requirement (or a session directory to resume) and wants a structured but low-ceremony flow — no complexity matrix, no fix-loop counters. A leaner parallel to ss-develop-pipeline.
+description: A lightweight spec-driven development flow that takes one requirement through a four-step trunk — requirement → spec → plan → develop — run inline, where develop covers coding, testing, and project-doc sync as one complete delivery. On top of the trunk sits a single enhancement-judgement step that decides whether to enable optional review sub-agents (spec-review, plan-review, develop-review); each review feeds its opinions back to the matching trunk step, which decides on its own whether to improve before continuing. Trigger when the user supplies a requirement (or a session directory to resume) and wants a structured but low-ceremony flow — no complexity matrix, no fix-loop counters. 
 argument-hint: [requirement description or session directory]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 ---
@@ -23,9 +23,13 @@ Run a lightweight spec-driven flow. The **trunk** runs inline; a single **enhanc
 | File | Produced by | Holds what |
 | --- | --- | --- |
 | `requirement.md` | requirement | The user's **raw requirement** verbatim (plus clarifying Q&A), unprocessed. |
-| `spec.md` | spec | **Structured requirement**: background, intent, functional scenarios with acceptance criteria, constraints, scope. Describes what, not how. |
-| `plan.md` | plan | **Technical solution**: implementation approach, affected files/modules, key trade-offs, testing and doc-sync notes. Describes how. |
+| `spec.md` | spec | **Persisted source of truth**. Describes what, not how. See positioning below. |
+| `plan.md` | plan | **The bridge from what to how** (technical solution). See positioning below. |
 | `state.md` | every step | **Resume log**: one line per step (and review) with status + timestamp. See [State Tracking](#state-tracking). |
+
+`spec.md` is the task's **persisted source of truth and compressed shared memory**. Its first audience is the **human** (durable task context and organizational memory); the model is the second audience, for which it provides **attention focus** (what currently matters), an on-demand **information index** (look things up instead of keeping everything resident), a **defense against context drift** across long sessions, and a **spec-vs-code review baseline**. It carries: background, intent, functional scenarios with acceptance criteria, constraints, scope, and a **Done Contract** — what counts as done, what proves it, and what counts as not-yet-done. Keep it current; reverse-sync conclusions and deviations back into it.
+
+`plan.md` turns the spec's *what* into a deliberate *how*. Beyond the chosen approach, affected files/modules, and testing/doc-sync notes, it records the **trade-offs weighed and the options rejected**, so design decisions stay auditable and every change in develop (and every review finding) can trace back to a recorded choice rather than an ad-hoc one.
 
 Implementation code, tests, and project-level docs (e.g. a project-level spec) are written by the develop step directly into the project's own locations — no separate artifact is kept in `<session-dir>`.
 
