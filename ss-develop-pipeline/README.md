@@ -1,5 +1,7 @@
 # develop-pipeline
 
+> **⚠️ DEPRECATED — use [`ss-specflow`](../ss-specflow/) instead.** `ss-specflow` is a leaner parallel skill that keeps the same trunk (requirement → spec → plan → develop) but drops the complexity-assessment matrix, fix-loop counters, and hybrid/parallel orchestration. This skill is kept for reference and to resume existing sessions; prefer `ss-specflow` for new work.
+
 A skill that runs a structured development pipeline as a single command.
 
 The main agent runs `analyst`, `designer`, and `developer` inline, and dispatches `improver`, `reviewer`, `tester`, and `documenter` as sub-agents when a Complexity Assessment determines they are needed. Each phase writes its output to a session directory (default `changes/YYYY/MM/DD/...`) so progress is auditable and resumable.
