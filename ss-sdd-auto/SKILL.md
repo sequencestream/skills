@@ -1,6 +1,6 @@
 ---
 name: ss-sdd-auto
-description: Lightweight AI Agent Harness / checkpoint-driven coding skill. For high-input, high-frequency, multi-turn coding and agentic tasks; the model decomposing, exploring, and advancing, while the human keeps control through a minimal spec, restatement, checkpoints, approvals, evidence-based validation, and reverse sync.
+description: Lightweight AI Agent Harness / checkpoint-driven coding skill for automation tasks. For high-input, high-frequency, multi-turn coding and agentic tasks; the model decomposing, exploring, and advancing, while the human keeps control through a minimal spec, restatement, checkpoints, evidence-based validation, and reverse sync.
 ---
 
 # SDD
@@ -48,20 +48,20 @@ description: Lightweight AI Agent Harness / checkpoint-driven coding skill. For 
 
 - Write a micro spec first; no raw edits.
 - Use 1–3 sentences to state the goal, files involved, main risks, and validation method.
-- Execute only after explicit user approval.
 - Upgrade to `standard` or `deep` when complexity rises.
 
 ### `standard`
 
 - Default mode, suitable for most 2+ file changes, ordinary feature work, and bug fixes.
 - Fill in the necessary context, maintain a lightweight spec, and persist it to disk.
-- Give a short checkpoint before execution; after approval, implement and write back the conclusion.
+- Give a short checkpoint before execution.
+- Implement and write back the conclusion.
 
 ### `deep`
 
 - For ambiguous requirements, architectural changes, unknown root causes, cross-module/cross-project work, or long-chain iteration.
 - Explicit analysis, option comparison, and risk discussion are allowed, but stay concise.
-- Write the deep-thinking output back to the spec first, then send it for review; only enter implementation after approval.
+- Write the deep-thinking output back to the spec first, then send it for review; 
 - For architecture-level or cross-module specs, you may delegate an independent verifier sub-agent to adversarially check the five `Spec Self-Check` dimensions; standard and below stay inline with no sub-agent overhead.
 
 ## Minimal Workflow
@@ -79,10 +79,8 @@ In any of the following situations, pause first and explain why:
 
 - A key ambiguity exists in requirements that would change implementation direction.
 - A destructive, high-risk, or irreversible operation is needed.
-- The change touches architecture, public interfaces, data models, or migration strategy.
 - The change crosses projects without explicit user permission or with unclear scope.
 - The existing spec is clearly wrong, outdated, or conflicts with the current code reality.
-- No minimal spec has been formed yet, or no explicit execution approval has been given.
 
 ## Spec Path
 
