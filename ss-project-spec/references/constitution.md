@@ -26,4 +26,4 @@ The constitution is the project's **highest-level constraint document** — the 
 
 ## Relationship to other specs
 
-The constitution sets the **absolute floor** (any spec that violates it is invalid). Domain/feature specs (`spec.md`, `features/<f>.md`) provide capability- and feature-level detail beneath it. References flow downward only — specs cite the constitution, never the reverse. See `rules.md` § Spec Layering.
+The constitution sets the **absolute floor** (any spec that violates it is invalid). Domain/feature specs (`<domain>-spec.md`, `features/<domain>-<feature>.md`) provide capability- and feature-level detail beneath it. References flow downward only — specs cite the constitution, never the reverse. See `rules.md` § Spec Layering.

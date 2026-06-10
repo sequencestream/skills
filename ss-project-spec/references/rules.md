@@ -16,9 +16,9 @@
 
 1. **Every domain MUST have:**
    - `<domain>-overview.md` — owner, status, dependencies, scope
-   - `spec.md` — business rules, features, acceptance criteria
-   - `design.md` — data model, state machine, API design
-   - `models.md` — entity definitions, attributes, relationships
+   - `<domain>-spec.md` — business rules, features, acceptance criteria
+   - `<domain>-design.md` — data model, state machine, API design
+   - `<domain>-models.md` — entity definitions, attributes, relationships
 
 2. **Every domain that exposes an API MUST have:**
    - A corresponding contract in `api/<group>/<name>-api.yaml` — OpenAPI 3.x
@@ -47,21 +47,21 @@ Spec documents are layered by change frequency. Each layer has a distinct purpos
 | Layer | File | Stability | Scope |
 |-------|------|-----------|-------|
 | Constitution | `constitution.md` | Immutable | Project-level hard rules, tech constraints, compliance |
-| Domain spec | `spec.md` | Quarterly-stable | Core entities, invariants, shared business rules |
-| Feature spec | `features/<f>.md` | Per iteration | Feature-specific flows, acceptance criteria, edge cases |
+| Domain spec | `<domain>-spec.md` | Quarterly-stable | Core entities, invariants, shared business rules |
+| Feature spec | `features/<domain>-<feature>.md` | Per iteration | Feature-specific flows, acceptance criteria, edge cases |
 
 ### Layering Rules
 
 1. **Downward reference only.** Feature specs can reference domain specs. Domain specs should not reference feature specs.
-2. **No duplication.** If a rule exists in a higher layer, feature specs reference it (e.g., "per `spec.md` state machine"), not restate it.
-3. **Promotion.** When a feature behavior stabilizes and becomes a domain invariant, promote it from feature spec to domain spec (`spec.md`).
+2. **No duplication.** If a rule exists in a higher layer, feature specs reference it (e.g., "per `<domain>-spec.md` state machine"), not restate it.
+3. **Promotion.** When a feature behavior stabilizes and becomes a domain invariant, promote it from feature spec to domain spec (`<domain>-spec.md`).
 4. **Constitution changes require review.** `constitution.md` modifications need explicit stakeholder sign-off.
 
 ## Consistency Rules
 
 1. **No duplicate definitions.** If a term, model, or enum is used across multiple domains, define it in `shared/` and reference it. Do not copy-paste.
 
-2. **Spec and design must agree.** Every entity and state in `spec.md` must map to a corresponding element in `design.md`.
+2. **Spec and design must agree.** Every entity and state in `<domain>-spec.md` must map to a corresponding element in `<domain>-design.md`.
 
 3. **ADR and design must agree.** Design decisions that are architecturally significant must reference an ADR.
 

@@ -1,6 +1,6 @@
 # Domain Design Guide
 
-Path: `specs/domains/<group>/<domain>/design.md`
+Path: `specs/domains/<group>/<domain>/<domain>-design.md`
 
 The domain design describes the **technical implementation** of a domain. It translates the business spec into data models, APIs, and technology choices.
 

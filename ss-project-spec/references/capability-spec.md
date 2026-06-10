@@ -1,6 +1,6 @@
 # Domain Spec Guide
 
-Path: `specs/domains/<group>/<domain>/spec.md`
+Path: `specs/domains/<group>/<domain>/<domain>-spec.md`
 
 The domain spec captures the **stable business behavior** of a domain. It changes at a quarterly cadence and serves as the source of truth for what the domain does.
 

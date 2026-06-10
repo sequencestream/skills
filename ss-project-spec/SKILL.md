@@ -45,10 +45,10 @@ specs/
 │   └── deprecated/          # Deprecated ADRs
 ├── domains/<group>/         # DDD bounded contexts
 │   └── <domain>/
-│       ├── spec.md          # Domain spec (stable)
-│       ├── design.md        # Technical design
+│       ├── <domain>-spec.md          # Domain spec (stable)
+│       ├── <domain>-design.md        # Technical design
 │       └── features/        # Feature specs (iterative)
-│           └── <feature>.md
+│           └── <domain>-<feature>.md
 ├── shared/                  # Cross-domain conventions
 ├── testing/                 # Testing strategy
 ├── assets/                  # Diagrams & resources
@@ -57,7 +57,7 @@ specs/
 
 > `changes/` is a sibling directory at project root level, alongside `specs/`. This skill only manages `specs/`.
 > 
-> **Spec layering**: `spec.md` = domain-level (quarterly stable). `features/<feature>.md` = feature-level (iteration changes). See `references/feature-spec.md` for details.
+> **Spec layering**: `<domain>-spec.md` = domain-level (quarterly stable). `features/<domain>-<feature>.md` = feature-level (iteration changes). See `references/feature-spec.md` for details.
 
 See `references/directory-structure.md` for the full specification with per-directory rules.
 
@@ -68,8 +68,8 @@ Each trigger maps to a short procedure. Read the listed reference first, then cr
 | Trigger | Read | Create / update | Note |
 |---|---|---|---|
 | Init specs | `directory-structure.md` | `project.md`, `constitution.md`, `glossary.md`, minimal `domains/` | Start from the "When to Simplify" minimal set |
-| Add a domain | `directory-structure.md`, `capability-spec.md`, `capability-design.md` | `<group>/<domain>/` + `<domain>-overview.md`, `spec.md`, `design.md` | spec=WHAT, design=HOW |
-| Add a feature | `feature-spec.md` | `domains/<group>/<domain>/features/<feature>.md` | Reference `spec.md`, never restate it |
+| Add a domain | `directory-structure.md`, `capability-spec.md`, `capability-design.md` | `<group>/<domain>/` + `<domain>-overview.md`, `<domain>-spec.md`, `<domain>-design.md` | spec=WHAT, design=HOW |
+| Add a feature | `feature-spec.md` | `domains/<group>/<domain>/features/<domain>-<feature>.md` | Reference `<domain>-spec.md`, never restate it |
 | Create an ADR | `adr.md` | `architecture/adr/NNNN-title.md` | Present draft for human review; write only after explicit approval. Zero-padded sequential number |
 | Update NFR | `rules.md` | `non-functional/{performance,security,availability}.md` | Quantify every requirement |
 | Add glossary terms | `rules.md` | `glossary.md` | Add if a term spans >1 domain |
@@ -85,9 +85,9 @@ Read these files for detailed guidance on each aspect of spec management:
 | `references/directory-structure.md` | Complete directory layout, per-directory rules, variants |
 | `references/rules.md` | Naming conventions, completeness rules, lifecycle, format rules, anti-rationalization |
 | `references/constitution.md` | Guide for `specs/constitution.md` (project-level immutable constraints) |
-| `references/capability-spec.md` | Template for `domains/<group>/<name>/spec.md` (domain spec) |
-| `references/feature-spec.md` | Template for `domains/<group>/<name>/features/<feature>.md` |
-| `references/capability-design.md` | Template for `domains/<group>/<name>/design.md` |
+| `references/capability-spec.md` | Template for `domains/<group>/<domain>-spec.md` (domain spec) |
+| `references/feature-spec.md` | Template for `domains/<group>/<domain>/features/<domain>-<feature>.md` |
+| `references/capability-design.md` | Template for `domains/<group>/<domain>-design.md` |
 | `references/adr.md` | Template for `architecture/adr/NNNN-title.md` |
 | `references/change-record.md` | Template for sibling `changes/` directory |
 

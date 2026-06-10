@@ -33,12 +33,12 @@ specs/
 │       ├── <group>-overview.md #   (required) Group overview & domain list
 │       └── <domain>/       #   One domain per directory (kebab-case)
 │           ├── <domain>-overview.md     #   (required) Domain overview, ownership, status
-│           ├── spec.md         #   (required) Domain spec — quarterly stable
-│           ├── design.md       #   (required) Technical design
-│           ├── models.md       #   (recommended) Domain-specific entity models
-│           ├── test-spec.md    #   (recommended) Test specification
+│           ├── <domain>-spec.md         #   (required) Domain spec — quarterly stable
+│           ├── <domain>-design.md       #   (required) Technical design
+│           ├── <domain>-models.md       #   (recommended) Domain-specific entity models
+│           ├── <domain>-test-spec.md    #   (recommended) Test specification
 │           ├── features/       #   (optional) Feature specs — iteration-level
-│           │   └── <feature>.md #     One file per feature (kebab-case)
+│           │   └── <domain>-<feature>.md #     One file per feature (kebab-case)
 │           └── artifacts/      #   (optional) Diagrams, prototypes, references
 │
 ├── shared/                     # (recommended) Cross-domain conventions
@@ -63,11 +63,11 @@ Each domain directory follows a standard template:
 |------|-----------|----------|---------|
 | `<group>-overview.md` | **Yes** | All | Group scope, domain index, shared context |
 | `<domain>-overview.md` | **Yes** | All | Scope, owner, status, dependencies, domain index |
-| `spec.md` | **Yes** | PM, QA, Developers | **Domain spec.** Core entities, universal rules, invariants |
-| `design.md` | **Yes** | Developers, Architects | Data model, state machine, API design, tech choices |
-| `models.md` | Recommended | Developers, Architects | Entity models, attributes, relationships for this domain |
-| `features/<feature>.md` | Optional | PM, QA, Developers | **Feature spec.** Feature-specific flows, acceptance criteria, edge cases |
-| `test-spec.md` | Recommended | QA | Test scenarios, edge cases, data setup |
+| `<domain>-spec.md` | **Yes** | PM, QA, Developers | **Domain spec.** Core entities, universal rules, invariants |
+| `<domain>-design.md` | **Yes** | Developers, Architects | Data model, state machine, API design, tech choices |
+| `<domain>-models.md` | Recommended | Developers, Architects | Entity models, attributes, relationships for this domain |
+| `features/<domain>-<feature>.md` | Optional | PM, QA, Developers | **Feature spec.** Feature-specific flows, acceptance criteria, edge cases |
+| `<domain>-test-spec.md` | Recommended | QA | Test scenarios, edge cases, data setup |
 | `artifacts/` | Optional | All | Sequence diagrams, ERDs, prototypes, research notes |
 
 ### `architecture/adr/` — ADR Conventions
@@ -79,9 +79,9 @@ Each domain directory follows a standard template:
 
 ### `domains/<group>/<domain>/features/` — Feature Specs
 
-Feature specs sit below the domain-level `spec.md` and capture iteration-level behavior.
+Feature specs sit below the domain-level `<domain>-spec.md` and capture iteration-level behavior.
 
-| Aspect | Domain Spec (`spec.md`) | Feature Spec (`features/<f>.md`) |
+| Aspect | Domain Spec (`<domain>-spec.md`) | Feature Spec (`features/<domain>-<feature>.md`) |
 |--------|------------------------|----------------------------------|
 | Change frequency | Quarterly-stable | Per iteration |
 | Content | Core entities, invariants, universal rules | Feature-specific flows, acceptance criteria |
@@ -90,7 +90,7 @@ Feature specs sit below the domain-level `spec.md` and capture iteration-level b
 
 Rules:
 - Feature specs **must not duplicate** rules already in the domain spec. Reference them instead.
-- When a feature behavior stabilizes and becomes a domain invariant, promote it to `spec.md`.
+- When a feature behavior stabilizes and becomes a domain invariant, promote it to `<domain>-spec.md`.
 - One file per feature, kebab-case. E.g., `order-cancel.md`, `coupon-stack.md`.
 
 ### `api/<group>/` — API Contracts
@@ -117,9 +117,9 @@ specs/
     └── <group>/
         ├── <group>-overview.md
         └── <domain>/
-            ├── spec.md
-            ├── design.md
-            └── models.md
+            ├── <domain>-spec.md
+            ├── <domain>-design.md
+            └── <domain>-models.md
 ```
 
 All other directories (features/, non-functional/, adr/, shared/, etc.) can be added incrementally as the project grows.
