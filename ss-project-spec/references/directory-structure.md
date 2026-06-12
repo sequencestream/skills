@@ -30,7 +30,7 @@ specs/
 │
 ├── flows/                     # (recommended) Cross-domain business flows
 │   ├── flows.md               #   Index of all flow files
-│   └── flow-<scenario>.md     #   Per-scenario flows: each flow's ordered steps, branches/exceptions
+│   └── flow-<scenario>.md     #   Per-scenario flows: flow graph, steps description, branches/exceptions
 │
 ├── domains/               # (required) DDD bounded contexts
 │   └── <group>/                #   Business group (kebab-case, e.g., commerce)
