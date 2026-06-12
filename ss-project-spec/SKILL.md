@@ -3,10 +3,10 @@ name: ss-project-spec
 description: >
   Define and maintain project-level specification documents under the specs/
   directory. Use this skill when the user asks to init/initialize specs, add a
-  domain, document a spec or design, create an ADR, update non-functional
-  requirements, add glossary terms, archive deprecated content, or audit spec
-  completeness. Also triggers on keywords like "规范", "规格", "spec",
-  "specification".
+  domain, document a spec or design, create an ADR, document a business
+  flow, update non-functional requirements, add glossary terms,
+  archive deprecated content, or audit spec completeness. Also triggers on
+  keywords like "规范", "规格", "流程", "spec", "specification", "flow".
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
@@ -17,17 +17,11 @@ You manage the project's specification documents. Keep them consistent, complete
 ## Core Principles
 
 1. **Separate WHAT from HOW** — `spec.md` = business behavior. `design.md` = technical implementation. Never blur.
-
 2. **Incremental in-place updates** — Update existing files rather than creating versioned filenames.
-
 3. **Single source of truth** — `specs/` = current state. `archived/` = deprecated. Never mix.
-
 4. **No code in specs** — No source code, SQL schemas, or deployment configs.
-
 5. **Consistency over creativity** — All domains follow the same template structure in `references/`.
-
 6. **Specify the negative space** — A spec must state non-goals ("what we won't do") and anti-scenarios ("what must never happen"), not only the happy path. Omitting boundaries lets implementations over-generate. Quantify every non-functional requirement — never "fast," "high," or "good."
-
 7. **Code owns HOW, spec owns WHY** — Code and specs share the repo, so the spec must not restate logic the code already expresses; duplicated detail only drifts. The spec captures what code *cannot*: intent and rationale (why this exists, why this way), boundaries and constraints (what must never happen), cross-cutting decisions spanning many code locations, and stable business invariants. **Litmus test for every line:** "Could a reader recover this by reading the code?" If yes — delete it, link to the code. If no — it belongs here. When unsure, rise in altitude, don't sink.
 
 > **Skip if** the user asks to write code, configure deployment, edit source files, or manage database migrations — this skill manages documentation only.
@@ -43,6 +37,9 @@ specs/
 ├── non-functional/          # performance, security, availability
 ├── architecture/adr/        # Architecture Decision Records
 │   └── deprecated/          # Deprecated ADRs
+├── flows/                   # Cross-domain business flows
+│   ├── flows.md             #   Index of flow files
+│   └── flow-<scenario>.md   #   Scenario flows & steps
 ├── domains/<group>/         # DDD bounded contexts
 │   └── <domain>/
 │       ├── <domain>-spec.md          # Domain spec (stable)
@@ -70,6 +67,7 @@ Each trigger maps to a short procedure. Read the listed reference first, then cr
 | Init specs | `directory-structure.md` | `project.md`, `constitution.md`, `glossary.md`, minimal `domains/` | Start from the "When to Simplify" minimal set |
 | Add a domain | `directory-structure.md`, `capability-spec.md`, `capability-design.md` | `<group>/<domain>/` + `<domain>-overview.md`, `<domain>-spec.md`, `<domain>-design.md` | spec=WHAT, design=HOW |
 | Add a feature | `feature-spec.md` | `domains/<group>/<domain>/features/<domain>-<feature>.md` | Reference `<domain>-spec.md`, never restate it |
+| Add a flow | `directory-structure.md` | `flows/flow-<scenario>.md` + update `flows/flows.md` | Cross-domain flows & steps; reference domain rules by ID |
 | Create an ADR | `adr.md` | `architecture/adr/NNNN-title.md` | Present draft for human review; write only after explicit approval. Zero-padded sequential number |
 | Update NFR | `rules.md` | `non-functional/{performance,security,availability}.md` | Quantify every requirement |
 | Add glossary terms | `rules.md` | `glossary.md` | Add if a term spans >1 domain |

@@ -28,6 +28,10 @@ specs/
 │   └── <group>/               #   Grouped by business group
 │       └── <name>-api.yaml    #     OpenAPI 3.x contract
 │
+├── flows/                     # (recommended) Cross-domain business flows
+│   ├── flows.md               #   Index of all flow files
+│   └── flow-<scenario>.md     #   Per-scenario flows: each flow's ordered steps, branches/exceptions
+│
 ├── domains/               # (required) DDD bounded contexts
 │   └── <group>/                #   Business group (kebab-case, e.g., commerce)
 │       ├── <group>-overview.md #   (required) Group overview & domain list
