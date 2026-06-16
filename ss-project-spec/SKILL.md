@@ -19,7 +19,7 @@ You manage the project's specification documents. Keep them consistent, complete
 1. **Separate WHAT from HOW** — `spec.md` = business behavior. `design.md` = technical implementation. Never blur.
 2. **Incremental in-place updates** — Update existing files rather than creating versioned filenames.
 3. **Single source of truth** — `specs/` = current state. `archived/` = deprecated. Never mix.
-4. **No code in specs** — No source code, SQL schemas, or deployment configs.
+4. **No code in specs** — No source code, SQL schemas, or deployment configs. No code references.
 5. **Consistency over creativity** — All domains follow the same template structure in `references/`.
 6. **Specify the negative space** — A spec must state non-goals ("what we won't do") and anti-scenarios ("what must never happen"), not only the happy path. Omitting boundaries lets implementations over-generate. Quantify every non-functional requirement — never "fast," "high," or "good."
 7. **Code owns HOW, spec owns WHY** — Code and specs share the repo, so the spec must not restate logic the code already expresses; duplicated detail only drifts. The spec captures what code *cannot*: intent and rationale (why this exists, why this way), boundaries and constraints (what must never happen), cross-cutting decisions spanning many code locations, and stable business invariants. **Litmus test for every line:** "Could a reader recover this by reading the code?" If yes — delete it, link to the code. If no — it belongs here. When unsure, rise in altitude, don't sink.
