@@ -1,6 +1,6 @@
 # ADR Guide
 
-Path: `specs/architecture/adr/NNNN-title-with-dashes.md`
+Path: `doc/architecture/adr/NNNN-title-with-dashes.md`
 
 An Architecture Decision Record captures a significant architectural choice, its context, alternatives, and rationale. ADRs are **never deleted** — they form the permanent decision log of the project.
 

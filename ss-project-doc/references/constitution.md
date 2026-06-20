@@ -1,8 +1,8 @@
 # Constitution Guide
 
-Path: `specs/constitution.md`
+Path: `doc/constitution.md`
 
-The constitution is the project's **highest-level constraint document** — the set of principles that almost never change. It is like a national constitution: it does not prescribe specific behavior, but defines the lines no spec, design, or line of code may cross. It sits above feature specs, above code, above personal preference.
+The constitution is the project's **highest-level constraint document** — the set of principles that almost never change. It is like a national constitution: it does not prescribe specific behavior, but defines the lines no spec, design, or line of code may cross. It sits above feature documents, above code, above personal preference.
 
 ## Content
 
@@ -17,7 +17,7 @@ The constitution is the project's **highest-level constraint document** — the 
 
 ## Principles
 
-- **Stable.** Review annually. Frequent edits mean detail rules were mistaken for principles — move those to a domain spec or `shared/`.
+- **Stable.** Review annually. Frequent edits mean detail rules were mistaken for principles — move those to a domain document or `shared/`.
 - **Concise.** Aim for under ~3000 words. If it grows past that, the "handbook" leaked into the "constitution."
 - **Executable, not aspirational.** Every clause must be answerable Yes/No to "was this violated?" Avoid slogans like "customer first" — they cannot be enforced.
 - **Priority is explicit.** Values must be ordered, and the tie-break rule for conflicts must be written down.
@@ -26,4 +26,4 @@ The constitution is the project's **highest-level constraint document** — the 
 
 ## Relationship to other specs
 
-The constitution sets the **absolute floor** (any spec that violates it is invalid). Domain/feature specs (`<domain>-spec.md`, `features/<domain>-<feature>.md`) provide capability- and feature-level detail beneath it. References flow downward only — specs cite the constitution, never the reverse. See `rules.md` § Spec Layering.
+The constitution sets the **absolute floor** (any spec that violates it is invalid). Domain/feature documents (`<domain>.md`, `features/<domain>-<feature>.md`) provide domain- and feature-level detail beneath it. References flow downward only — specs cite the constitution, never the reverse. See `rules.md` § Spec Layering.
